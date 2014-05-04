@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{block:SearchPage}{lang:Search results for SearchQuery} - {/block:SearchPage}{block:PostSummary}{PostSummary} - {/block:PostSummary}{Title}</title>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=550">
+    <link rel="shortcut icon" href="{Favicon}">
+    <link rel="apple-touch-icon" href="{PortraitURL-128}">
+    <link rel="alternate" type="application/rss+xml" href="{RSS}">
+    {block:Description}<meta name="description" content="{MetaDescription}">{/block:Description}
+
+    <style type="text/css">
+      body {
+        width: 528px;
+        color: #4a4a4a;
+        margin: 0 auto;
+        padding: 0;
+        background: white;
+        font-family: "ff-tisa-sans-web-pro", Helvetica Neue, sans-serif;
+        font-style: italic;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 1.5;
+        position: relative;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+      }
+
+      a {
+        color: #0074D9;
+      }
+
+      a:hover {
+        color: #0074D9;
+      }
+
+      ul,
+      ol,
+      blockquote,
+      p {
+        font-size: 15px;
+        line-height: 1.6;
+      }
+
+      ul {
+        list-style-type: circle;
+        padding-left: 20px;
+      }
+
+      ol {
+        padding-left: 20px;
+      }
+
+      blockquote {
+        padding: 8px 16px;
+        margin: 16px 0;
+      }
+
+      iframe { max-width: 100% }
+
+      .main {
+        width: 528px;
+        margin-top: 20px;
+      }
+
+      .header { padding: 10px }
+
+      .blog-title {
+        font-size: 18px;
+        text-align: center;
+        font-weight: 400;
+      }
+
+      .description {
+        margin-top: -14px;
+        margin-bottom: 30px;
+        text-align: center;
+        font-size: 11px;
+      }
+
+      .header-links {
+        text-align: center;
+        list-style-type: none;
+        padding-left: 0;
+        margin: 0 auto;
+      }
+
+      .header-item {
+        text-align: center;
+        display: inline;
+      }
+
+      .header-link {
+        color: #0074D9;
+        padding: 12px;
+      }
+
+      .post {
+        border-bottom: 2px solid rgba(0,0,0,0.04);
+        padding-bottom: 15px;
+        margin-bottom: 15px;
+        margin-top: 15px;
+        margin-left: 6px;
+        margin-right: 6px;
+        width: 500px;
+      }
+
+      .post-figure { padding-top: 25px; }
+      .post-figure img {
+        outline: 8px solid rgba(0,0,0,0.04);
+        margin: 0;
+      }
+
+      .post-content { padding: 10px }
+
+      .post-chat-label {
+        font-weight: bold;
+        text-align: right;
+      }
+
+      .post-chat-items {
+        list-style-type: none;
+        padding-left: 0;
+      }
+
+      .post-chat-item {
+        border-bottom: 1px solid rgba(0,0,0,0.05);
+        padding: 5px 0;
+      }
+
+      .post-chat-item:last-child { border-bottom: 0 }
+
+      .post-meta {
+        color: #aaaaaa;
+        font-size: 13px;
+        padding: 7px;
+      }
+
+      .tag:before { content: "#" }
+
+      .asker-avatar {
+        width: 16px;
+        height: 16px;
+        border-radius: 2px;
+        margin-right: 8px;
+        vertical-align: middle;
+      }
+
+      .asker-bar {
+        border-top: 0;
+        border-bottom: 2px solid white;
+      }
+
+      .pagination {
+        margin: 0 auto 50px;
+        text-align: center;
+      }
+    </style>
+
+    <script type="text/javascript" src="//use.typekit.net/qzt1mej.js"></script>
+    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+  </head>
+  <body class="{block:IndexPage}index-page{/block:IndexPage}{block:PermalinkPage}permalink-page{/block:PermalinkPage}">
+    <header class="masthead">
+      <h1 class="blog-title">{Title}</h1>
+      <div class="description">{Description}</div>
+      <ul class="header-links">
+        <li class="header-item"><a class="header-link" href="/">{lang:Home}</a></li>
+        <li class="header-item"><a class="header-link" href="/archive">{lang:Archive}</a></li>{/block:IfShowArchiveLink}
+        <li class="header-item"><a class="header-link" href="/ask">{AskLabel}</a></li>
+      </ul>
+    </header>
+
+    <div class="main">
+      {block:SearchPage}
+        {block:SearchResults}
+          <div class="post">
+            <div class="post-content">
+              <h1>{lang:SearchResultCount results for SearchQuery 2}</h1>
+            </div>
+          </div>
+        {/block:SearchResults}
+        {block:NoSearchResults}
+          <div class="post">
+            <div class="post-content">
+              <h1>{lang:No search results for SearchQuery 2}</h1>
+            </div>
+          </div>
+        {/block:NoSearchResults}
+      {/block:SearchPage}
+
+      {block:Posts}
+        <article id="{PostID}" class="post {PostType}">
+
+          {block:Answer}
+            <div class="post-meta asker-bar">
+              <img class="asker-avatar" src="{AskerPortraitURL-16}" /> {lang:Asked by Asker 2}:
+            </div>
+          {/block:Answer}
+
+          {block:Text}
+            <div class="post-content">
+              {block:Title}
+                <header class="post-header">
+                  <h1 class="post-header">{Title}</h1>
+                </header>
+              {/block:Title}
+
+              {Body}
+            </div>
+          {/block:Text}
+
+          {block:Answer}
+            <div class="post-content">
+              <blockquote class="post-question">
+                <p>{Question}</p>
+              </blockquote>
+              {Answer}
+            </div>
+          {/block:Answer}
+
+          {block:Photo}
+            <figure class="post-figure">
+              {LinkOpenTag}<img src="{PhotoURL-500}" alt="{PhotoAlt}" />{LinkCloseTag}
+            </figure>
+            <div class="post-content">
+              <figcaption class="post-caption">{Caption}</figcaption>
+            </div>
+          {/block:Photo}
+
+          {block:Photoset}
+            <figure class="post-figure">
+              {Photoset-500}
+            </figure>
+            <div class="post-content">
+              <figcaption class="post-caption">{Caption}</figcaption>
+            </div>
+          {/block:Photoset}
+
+          {block:Quote}
+            <div class="post-content">
+              <p class="post-quote-text">"{Quote}"</p>
+              {block:Source}
+                <p class="post-quote-source"> &mdash; {Source}</p>
+              {/block:Source}
+            </div>
+          {/block:Quote}
+
+          {block:Link}
+            <div class="post-content">
+              <header class="post-header">
+                <h1 class="post-link post-header">
+                  <a href="{URL}" class="post-link-list ha" {Target}>{Name}</a>
+                </h1>
+
+              {block:Description}
+                <div class="post-link-description">{Description}</div>
+              {/block:Description}
+            </div>
+          {/block:Link}
+
+          {block:Chat}
+            <div class="post-content">
+              {block:Title}
+                <header class="post-header">
+                  <h1>{Title}</h1>
+                </header>
+              {/block:Title}
+
+              <ul class="post-chat-items">
+                {block:Lines}
+                  <li class="{Alt} user_{UserNumber} post-chat-item">
+                    {block:Label}
+                      <span class="post-chat-label">{Label}</span>
+                    {/block:Label}
+                    <span class="post-chat-line">{Line}</span>
+                  </li>
+                {/block:Lines}
+              </ul>
+            </div>
+          {/block:Chat}
+
+          {block:Video}
+            <figure class="post-figure">
+              {Video-500}
+            </figure>
+
+            <div class="post-content">
+              {block:Caption}
+                <figcaption class="post-caption">{Caption}</figcaption>
+              {/block:Caption}
+            </div>
+          {/block:Video}
+
+          {block:Audio}
+            <figure class="post-figure">
+              {AudioEmbed}
+            </figure>
+            <div class="post-content">
+              {block:Caption}
+                <figcaption class="post-caption">{Caption}</figcaption>
+              {/block:Caption}
+            </div>
+          {/block:Audio}
+
+        </article>
+      {/block:Posts}
+    </div>
+
+    {block:Pagination}
+      <div class="pagination">
+        {block:PreviousPage}<a href="{PreviousPage}" id="previous">&laquo;</a>{/block:PreviousPage}
+        <span class="page-info">{lang:CurrentPage of TotalPages}</span>
+        {block:NextPage}<a href="{NextPage}" id="next">&raquo;</a>{/block:NextPage}
+      </div>
+    {/block:Pagination}
+
+    <!-- <script> -->
+    <!--   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){ -->
+    <!--   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o), -->
+    <!--   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m) -->
+    <!--   })(window,document,'script','//www.google-analytics.com/analytics.js','ga'); -->
+    <!--   ga('create', '...', 'tumblr.com'); -->
+    <!--   ga('send', 'pageview'); -->
+    <!-- </script> -->
+  </body>
+</html>
